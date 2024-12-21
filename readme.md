@@ -12,7 +12,7 @@ composer require kjjd84/lucid
 
 Replace the default `User` model in new apps:
 
-```
+```console
 php artisan lucid:model User --force
 ```
 
