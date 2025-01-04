@@ -8,6 +8,7 @@ use Illuminate\Console\ConfirmableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Schema\Builder;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Kjjd84\Lucid\Database\Blueprint;
 use Symfony\Component\Finder\Finder;
@@ -32,6 +33,10 @@ class MigrateCommand extends Command
 
         if ($this->option('seed')) {
             $this->seed();
+        }
+
+        if (!App::isProduction()) {
+            $this->generateIdeHelperFiles();
         }
     }
 
@@ -154,6 +159,17 @@ class MigrateCommand extends Command
     {
         $this->call('db:seed', [
             '--force' => $this->option('force'),
+        ]);
+    }
+
+    protected function generateIdeHelperFiles(): void
+    {
+        $this->components->info('Generating IDE helper files.');
+
+        $this->callSilently('ide-helper:generate');
+
+        $this->callSilently('ide-helper:models', [
+            '--nowrite' => true,
         ]);
     }
 }
