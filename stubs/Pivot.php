@@ -15,4 +15,14 @@ class DummyClass extends Pivot
         $table->timestamp('created_at');
         $table->timestamp('updated_at');
     }
+
+    // public function first()
+    // {
+    //     return $this->belongsTo(First::class);
+    // }
+
+    // public function second()
+    // {
+    //     return $this->belongsTo(Second::class);
+    // }
 }
