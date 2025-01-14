@@ -34,10 +34,6 @@ class MigrateCommand extends Command
         if ($this->option('seed')) {
             $this->seed();
         }
-
-        if (!App::isProduction()) {
-            $this->generateIdeHelperFiles();
-        }
     }
 
     protected function migrate(): void
@@ -159,17 +155,6 @@ class MigrateCommand extends Command
     {
         $this->call('db:seed', [
             '--force' => $this->option('force'),
-        ]);
-    }
-
-    protected function generateIdeHelperFiles(): void
-    {
-        $this->components->info('Generating IDE helper files.');
-
-        $this->callSilently('ide-helper:generate');
-
-        $this->callSilently('ide-helper:models', [
-            '--nowrite' => true,
         ]);
     }
 }

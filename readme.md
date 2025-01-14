@@ -147,4 +147,3 @@ php artisan lucid:migrate {--force} {--f|fresh} {--s|seed}
 - Lucid definition methods only work with a `LucidFactory`
 - All columns (except `id`) are nullable by default
 - All models are unguarded via `Model::unguard()`
-- IDE helper files are automatically created after migrating in non-production
