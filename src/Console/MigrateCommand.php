@@ -8,7 +8,6 @@ use Illuminate\Console\ConfirmableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Schema\Builder;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Kjjd84\Lucid\Database\Blueprint;
 use Symfony\Component\Finder\Finder;
