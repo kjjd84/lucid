@@ -112,10 +112,10 @@ Create a new Lucid model.
 php artisan lucid:model {name} {--force} {--p|pivot} {--r|resource}
 ```
 
-- `name`: the model name
-- `--force`: Create the model even if it already exists
-- `--pivot` or `-p`: Create a pivot instead of a regular model
-- `--resource` or `-r`: Create a Filament resource for the model
+-   `name`: the model name
+-   `--force`: Create the model even if it already exists
+-   `--pivot` or `-p`: Create a pivot instead of a regular model
+-   `--resource` or `-r`: Create a Filament resource for the model
 
 ### `lucid:factory`
 
@@ -125,8 +125,8 @@ Create a new Lucid factory.
 php artisan lucid:factory {name} {--force}
 ```
 
-- `name`: the model name for the factory
-- `--force`: Create the factory even if it already exists
+-   `name`: the model name for the factory
+-   `--force`: Create the factory even if it already exists
 
 ### `lucid:migrate`
 
@@ -136,14 +136,14 @@ Migrate & sync schemas with the database.
 php artisan lucid:migrate {--force} {--f|fresh} {--s|seed}
 ```
 
-- `--force`: Force the operation to run when in production
-- `--fresh` or `-f`: Drop all tables from the database first
-- `--seed` or `-s`: Re-run seeders when migrations are complete
+-   `--force`: Force the operation to run when in production
+-   `--fresh` or `-f`: Drop all tables from the database first
+-   `--seed` or `-s`: Re-run seeders when migrations are complete
 
 ## Notes
 
-- This package only works with `sqlite`, `mysql`, & `pgsql` PDO drivers
-- Renaming columns will result data loss unless renamed before running `lucid:migrate`
-- Lucid definition methods only work with a `LucidFactory`
-- All columns (except `id`) are nullable by default
-- All models are unguarded via `Model::unguard()`
+-   This package only works with `sqlite`, `mysql`, & `pgsql` PDO drivers
+-   Renaming columns will result data loss unless renamed before running `lucid:migrate`
+-   Lucid definition methods only work with a `LucidFactory`
+-   All columns (except `id`) are nullable by default
+-   All models are unguarded via `Model::unguard()`
