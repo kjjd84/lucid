@@ -53,6 +53,8 @@ class ModelCommand extends GeneratorCommand
     {
         $this->call('make:filament-resource', [
             'model' => $this->argument('name'),
+            '--embed-schemas' => true,
+            '--embed-table' => true,
             '--view' => true,
         ]);
     }
