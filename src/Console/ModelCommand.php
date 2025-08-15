@@ -52,7 +52,7 @@ class ModelCommand extends GeneratorCommand
     protected function createResource(): void
     {
         $this->call('make:filament-resource', [
-            'name' => $this->argument('name'),
+            'model' => $this->argument('name'),
             '--view' => true,
         ]);
     }
