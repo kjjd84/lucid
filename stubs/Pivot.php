@@ -2,6 +2,7 @@
 
 namespace DummyNamespace;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Kjjd84\Lucid\Database\Blueprint;
 
@@ -16,12 +17,12 @@ class DummyClass extends Pivot
         $table->timestamp('updated_at');
     }
 
-    // public function first()
+    // public function first(): BelongsTo
     // {
     //     return $this->belongsTo(First::class);
     // }
 
-    // public function second()
+    // public function second(): BelongsTo
     // {
     //     return $this->belongsTo(Second::class);
     // }
