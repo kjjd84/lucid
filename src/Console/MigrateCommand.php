@@ -5,6 +5,7 @@ namespace Kjjd84\Lucid\Console;
 use Doctrine\DBAL\DriverManager;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
+use Illuminate\Database\Console\Seeds\SeedCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Schema\Builder;
@@ -134,8 +135,8 @@ class MigrateCommand extends Command
         ])->createSchemaManager();
 
         $tableDiff = $schemaManager->createComparator()->compareTables(
-            $schemaManager->introspectTable($model->getTable()),
-            $schemaManager->introspectTable($temporaryTable),
+            $schemaManager->introspectTableByQuotedName($model->getTable()),
+            $schemaManager->introspectTableByQuotedName($temporaryTable),
         );
 
         if (!$tableDiff->isEmpty()) {
@@ -152,7 +153,7 @@ class MigrateCommand extends Command
 
     protected function seed(): void
     {
-        $this->call('db:seed', [
+        $this->call(SeedCommand::class, [
             '--force' => $this->option('force'),
         ]);
     }

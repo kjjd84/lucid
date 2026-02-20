@@ -2,6 +2,7 @@
 
 namespace Kjjd84\Lucid\Console;
 
+use Filament\Commands\MakeResourceCommand;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -43,7 +44,7 @@ class ModelCommand extends GeneratorCommand
 
     protected function createFactory(): void
     {
-        $this->call('lucid:factory', [
+        $this->call(FactoryCommand::class, [
             'name' => $this->argument('name'),
             '--force' => $this->option('force'),
         ]);
@@ -51,9 +52,10 @@ class ModelCommand extends GeneratorCommand
 
     protected function createResource(): void
     {
-        $this->call('make:filament-resource', [
+        $this->call(MakeResourceCommand::class, [
             'model' => $this->argument('name'),
             '--view' => true,
+            '--force' => $this->option('force'),
         ]);
     }
 

@@ -17,13 +17,13 @@ class DummyClass extends Pivot
         $table->timestamp('updated_at');
     }
 
-    // public function first(): BelongsTo
-    // {
-    //     return $this->belongsTo(First::class);
-    // }
+    public function first(): BelongsTo
+    {
+        return $this->belongsTo(First::class);
+    }
 
-    // public function second(): BelongsTo
-    // {
-    //     return $this->belongsTo(Second::class);
-    // }
+    public function second(): BelongsTo
+    {
+        return $this->belongsTo(Second::class);
+    }
 }
