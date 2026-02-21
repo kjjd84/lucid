@@ -142,7 +142,7 @@ php artisan lucid:migrate {--force} {--f|fresh} {--s|seed}
 
 ### `lucid:filament`
 
-Install filament and the user resource.
+Install filament in a fresh Laravel app.
 
 ```console
 php artisan lucid:filament
