@@ -9,12 +9,14 @@ class FilamentCommand extends Command
 {
     protected $signature = 'lucid:filament';
 
-    protected $description = 'Install filament and the user resource';
+    protected $description = 'Install filament in a fresh Laravel app';
 
     public function handle(): void
     {
-        $this->components->task('Requiring Filament via composer', function () {
+        $this->components->task('Installing Filament via Composer', function () {
             Process::run('composer require filament/filament:"^5.0"');
+
+            Process::run('php artisan filament:upgrade');
         });
 
         $paths = [
@@ -33,8 +35,10 @@ class FilamentCommand extends Command
             });
         }
 
-        $this->components->task('Creating user model & resource', function () {
+        $this->components->task('Creating user classes & migrating', function () {
             Process::run('php artisan lucid:model User -r --force');
+
+            Process::run('php artisan lucid:migrate -fs');
         });
     }
 }
