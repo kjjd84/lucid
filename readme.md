@@ -140,14 +140,6 @@ php artisan lucid:migrate {--force} {--f|fresh} {--s|seed}
 -   `--fresh` or `-f`: Drop all tables from the database first
 -   `--seed` or `-s`: Re-run seeders when migrations are complete
 
-### `lucid:filament`
-
-Install filament in a fresh Laravel app.
-
-```console
-php artisan lucid:filament
-```
-
 ## Notes
 
 -   This package only works with `sqlite`, `mysql`, & `pgsql` PDO drivers
